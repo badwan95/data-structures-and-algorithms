@@ -82,7 +82,6 @@ Write a function named removeWithForEach that produces the same output as challe
 
 const removeWithForEach = (arr, callback) => {
   // Solution code here...
-  console.log(`this is the array ${arr}`);
   arr.forEach(number => callback(number,arr));
   return arr;
 };
@@ -152,7 +151,7 @@ Return the resulting output array.
 const fizzbuzz = (arr) => {
   // Solution code here...
   let outputArray = [];
-  arr.forEach(function(number){
+  arr.forEach(number => {
     if(number%3 === 0 && number%5 === 0){
       outputArray.push('Fizz Buzz');
     } else if (number%3 === 0){
