@@ -69,7 +69,7 @@ const removeOne = (num, arr) => {
 const removeElements = (arr, callback) => {
   // Solution code here...
   for (let i=0;i<arr.length;i++){
-      callback(arr);
+      callback(arr[i],arr);
   }
   return arr;
 };
@@ -82,6 +82,9 @@ Write a function named removeWithForEach that produces the same output as challe
 
 const removeWithForEach = (arr, callback) => {
   // Solution code here...
+  console.log(`this is the array ${arr}`);
+  arr.forEach(number => callback(number,arr));
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -96,6 +99,12 @@ This anonymous function should accept up to three arguments: the element, the in
 
 const removeWithAnon = (arr) => {
   // Solution code here...
+  arr.forEach((element,index,arr) => {
+    if (element%3 === 2){
+      arr.pop();
+    }
+  })
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -117,6 +126,13 @@ This function should use forEach to populate your grocery list based on the stor
 
 const createList = (availableItems) => {
   // Solution code here...
+  let myList = [];
+  availableItems.forEach( item =>{
+    if (item.available){
+      myList.push(item.name);
+    }
+  })
+  return myList;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -135,6 +151,19 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   // Solution code here...
+  let outputArray = [];
+  arr.forEach(function(number){
+    if(number%3 === 0 && number%5 === 0){
+      outputArray.push('Fizz Buzz');
+    } else if (number%3 === 0){
+      outputArray.push('Fizz');
+    } else if (number%5 === 0){
+      outputArray.push('Buzz');
+    } else {
+      outputArray.push(number);
+    }
+  })
+  return outputArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
