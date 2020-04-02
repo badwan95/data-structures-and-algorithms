@@ -28,7 +28,7 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   // Solution code here...
-  let validator = /[A-Z]/g
+  let validator = /^[A-Z]*/g
   return str.match(validator)
 };
 
@@ -40,6 +40,12 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   // Solution code here...
+  let cityArray =[];
+  arr.forEach((value)=>{
+    let validator = /[A-J]/g
+    cityArray.push(value.match(validator));
+  })
+  return cityArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
