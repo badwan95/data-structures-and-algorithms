@@ -98,11 +98,8 @@ const hasChildrenValues = (arr, character) => {
   arr.forEach(value =>{
     let valuesArray = Object.values(value);
     if (valuesArray[0] === character){
-        console.log(valuesArray);
         if (valuesArray[2].length > 0){
-            console.log('this worked');
             answer = true;
-            // break;
         }
     }
   })
@@ -139,6 +136,34 @@ Write a function named totalCharacters that takes in an array and returns the nu
 
 const totalCharacters = (arr) => {
   // Solution code here...
+  let name = [];
+  let members = [];
+  let results = [];
+  arr.forEach(value=>{
+      name.push(value.house);
+      let numbers = 0;
+      if (value.spouse){
+          numbers = numbers+1
+      }
+      if (value.children.length > 0){
+          numbers = numbers + value.children.length;
+      }
+      members.push(numbers);
+  })
+  function HouseMembers (name,members){
+      this.house = name;
+      this.members = members;
+  }
+  for (let i=0;i<name.length;i++){
+    let house= new HouseMembers (name[i],members[i]);
+    results.push(house);
+  }
+
+
+  console.log(name);
+  console.log(members);
+  console.log(results);
+  return results;
 };
 
 /* ------------------------------------------------------------------------------------------------
