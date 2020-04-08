@@ -75,12 +75,12 @@ let starWarsData = [{
 
 const returnNames = (arr) => {
   // Solution code here...
+  let resultsArr = [];
   let results = arr.reduce((acc,val)=>{
-      console.log('acc is:',acc,' val is: ', val)
-      acc= val.name;
+      resultsArr.push(val.name)
     return acc;
   },[])
-  return results;
+  return resultsArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -93,6 +93,11 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 
 const reversedString = (str) => {
   // Solution code here...
+  let split = str.split('');
+  let reveresString = split.reduce((acc,val)=>{
+      return val + acc;
+  },'')
+  return reveresString;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -146,6 +151,12 @@ const characters = [
 
 const countNumberOfChildren = (arr) => {
   // Solution code here...
+  let numChildren = arr.reduce((acc,val)=>{
+      if(val.children !== undefined){
+        return acc + val.children.length;
+      } else {return acc};
+  },0)
+  return numChildren
 };
 
 /* ------------------------------------------------------------------------------------------------
