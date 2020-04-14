@@ -66,7 +66,6 @@ const onlyOddChars = (str) => {
   let answer = [];
   for (let i=0;i<str.length;i++){
       if (str.charCodeAt(i)%2 !== 0){
-          console.log(str[i]);
         answer.push(str[i]);
       }
   }
@@ -81,6 +80,13 @@ Write a function named allHappy that takes in an array of strings and returns a 
 
 const allHappy = (arr) => {
   // Solution code here...
+  let answer = true;
+  arr.forEach(value=>{
+      if(!value.includes(':)')){
+          answer = false;
+      }
+  })
+  return answer;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -91,6 +97,13 @@ Write a function named findAnything that takes in an array of strings, along wit
 
 const findAnything = (arr, target) => {
   // Solution code here...
+  let newArr = [];
+  arr.forEach(value=>{
+      if(value.includes(target)){
+        newArr.push(value);
+      }
+  })
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -101,6 +114,13 @@ Write a function named findEvery that takes in an array of strings, along with a
 
 const findEvery = (arr, target) => {
   // Solution code here...
+  let answer=true;
+  arr.forEach(value=>{
+      if(!value.includes(target)){
+          answer=false;
+      }
+  })
+  return answer;
 };
 
 /* ------------------------------------------------------------------------------------------------
